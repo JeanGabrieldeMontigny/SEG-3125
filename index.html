@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <title> Website Mock Up 1 - SEG 3125</title>
+   
+    <link rel="stylesheet" >
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+<body>
+  
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+          <li class="nav-item-logo">
+                <a class="nav-link active" aria-current="page" href="index.html"><em>Pâtisserie Obélix</em></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="product.html">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="OrderOnline.html">Order</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="about.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="contact.html">Contact Us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+    <div class="hero">
+      <div class="hero_text">
+          <h2>We serve you the best products made with the highest quality ingredients</h2>
+          <br>
+          <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, a doloribus.
+              Repudiandae vitae enim, dolorem rerum nostrum ipsum hic mollitia quibusdam earum? 
+              Enim eligendi placeat et a autem, tempore nihil.
+          </p> -->
+      </div>
+      
+    </div>
+
+    <div class="divider">
+
+    </div>
+
+    <div class="products">
+      <section class="box1" onclick="redirectToProduct('Our Pâtisseries')">
+        <h3>Pâtisseries</h3>
+      </section>
+    
+      <section class="box2" onclick="redirectToProduct('Our Cakes')">
+        <h3>Cakes</h3>
+      </section>
+    
+      <section class="box3" onclick="redirectToProduct('Our Breads')">
+        <h3>Baguettes and Breads</h3>
+      </section>
+    </div>
+
+    <script>
+      function redirectToProduct(sectionId) {
+        if (sectionId) {
+          window.location.href = "product.html#" + sectionId;
+        } else {
+          window.location.href = "product.html";
+        }
+      }
+    </script>
+    
+    
+
+    <footer class="bg-dark text-white py-5">
+      <div class="container-footer">
+        <div class="row-footer" style="display: flex; justify-content: center; padding-left: 30%; gap: 5%; ">
+          <div class="col-md-6">
+            <h2>Contact Information</h2>
+            <p>Email: patisserie_obelix@gmail.com<br>
+              Phone Number: 123-456-7890<br>
+              Address: 112 Osgoode St, Ottawa, ON K1N 6S1<br>
+              Our Socials: @Patisserie_Obelix
+            </p>
+          </div>
+          <div class="col-md-6">
+            <h2>Business Hours</h2>
+            <p>Monday to Friday<br>
+              7:00 to 17:00<br>
+              Saturday-Sunday<br>
+              7:00 to 16:00
+            </p>
+          </div>
+        </div>
+        <div class="copyright-footer">
+          <p class="display-5 mb-3"><em>Pâtisserie Obélix</em></p>
+          <small class="text-white-50">&copy; Copyright. All rights reserved.
+            <span class="d-none d-sm-inline">2023</span>
+          </small>
+        </div>
+  
+      </div>
+    </footer>
+    
+</body>
+</html>

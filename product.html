@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title> Website Mock Up 1 - SEG 3125</title>
+    <script src="script.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color:#B2B1C2;">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+          <li class="nav-item-logo">
+                <a class="nav-link active" aria-current="page" href="index.html"><em>Pâtisserie Obélix</em></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="product.html">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="OrderOnline.html">Order</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="about.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="contact.html">Contact Us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="accordion" id="accordionExample" style="background-color: #B2B1C2;">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="font-size: 40px; background-color: #B2B1C2;">
+          Your Cart
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <div class="cart-container">
+            <h2>Cart</h2>
+            <div class="cart-scroller">
+              <ul class="cart-items"></ul>
+            </div>
+            <div class="cart-total">
+              Total: <span class="total-amount">$0.00</span>
+            </div>
+            <div class="cart-buttons">
+              <button class="btn btn-danger clear-btn">Clear</button>
+              <a href="OrderOnline.html" class="btn btn-primary proceed-btn">Proceed</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    // Clear button functionality
+    const clearButton = document.querySelector('.clear-btn');
+    const cartItems = document.querySelector('.cart-items');
+    const totalAmount = document.querySelector('.total-amount');
+  
+    clearButton.addEventListener('click', () => {
+      cartItems.innerHTML = ''; // Remove all items from the cart
+      totalAmount.textContent = '$0.00'; // Reset the total amount to $0.00
+    });
+  
+    // Proceed button functionality
+    const proceedButton = document.querySelector('.proceed-btn');
+  
+    proceedButton.addEventListener('click', () => {
+      const totalPrice = totalAmount.textContent;
+      localStorage.setItem('totalPrice', totalPrice);
+    });
+  </script>
+  
+  
+  <script>
+    // Clear button functionality
+    const clearButton = document.querySelector('.clear-btn');
+    const cartItems = document.querySelector('.cart-items');
+    const totalAmount = document.querySelector('.total-amount');
+  
+    clearButton.addEventListener('click', () => {
+      cartItems.innerHTML = ''; // Remove all items from the cart
+      totalAmount.textContent = '$0.00'; // Reset the total amount to $0.00
+    });
+  </script>
+  
+
+
+  
+
+  <div class="product-title-section-patisserie" id="Our Pâtisseries"><em>Our Pâtisseries</em></div>
+  <div class="product-img">
+    <img src="img/millefeuille.jpeg">
+    <img src="img/eclairs-au-chocolat.jpeg">
+    <img src="img/choux-marrons_glaces-caramel.avif">
+    <img src="img/macarons-vanille.jpg">
+  </div>
+
+
+  <div class="product-card">
+      <div class="card-text">
+        <h2 class="cart-title">Millefeuille</h2>
+        <br>
+        <p>Indulge in our artisanal Millefeuille, crafted with flaky layers of puff pastry and luscious vanilla pastry
+          cream, creating a harmonious symphony of textures and flavors that is sure to delight your senses.</p>
+      </div>
+
+    <div class="card-text">
+      <h2 class="cart-title">Éclairs au chocolat</h2>
+      <br>
+      <p>Indulge in the rich and decadent delight of our chocolate éclairs, a heavenly combination of light choux pastry, velvety smooth chocolate cream filling, and a glossy chocolate ganache topping.</p>
+    </div>
+
+
+
+    <div class="card-text">
+      <h2 class="cart-title">Choux à la crème</h2>
+      <br>
+      <p>Experience pure bliss with our choux à la crème, delicate and airy pastry shells filled with luscious vanilla cream, creating a heavenly treat for your taste buds. <br> <br></p>
+    </div>
+
+
+
+    <div class="card-text">
+      <h2 class="cart-title">Macarons</h2>
+      <br>
+      <p>Indulge in the exquisite flavors of our macarons, delicate and colorful French pastries with a crisp shell and a soft, creamy center, offering a delightful and luxurious experience. <br> <br></p>
+    </div>
+  </div>
+
+    <div class="card-price-position">
+      <div class="card-price"><span>$3.99</span></div>
+      <div class="card-price"><span>$1.99</span></div>
+      <div class="card-price"><span>$1.99</span></div>
+      <div class="card-price"><span>$1.99</span></div>
+    </div>
+    <div class="add-to-cart-button">
+      <button class="shop-item-button" data-card-price="3.99" data-cart-title="Millefeuille" >Add to Cart</button>
+      <button class="shop-item-button" data-card-price="1.99" data-cart-title="Éclairs au chocolat">Add to Cart</button>
+      <button class="shop-item-button" data-card-price="1.99" data-cart-title="Choux à la crème">Add to Cart</button>
+      <button class="shop-item-button" data-card-price="1.99" data-cart-title="Macarons">Add to Cart</button>
+    </div>
+
+    <div class="product-title-section-patisserie" id="Our Cakes"><em>Our Cakes</em></div>
+    <div class="product-img">
+      <img src="img/bundt-marble.webp">
+      <img src="img/Triple-Chocolate-Cake-1.jpg">
+      <img src="img/vanilla-cake-4.jpg">
+      <img src="img/raspberry-coconut-and-lemon-layer-cake.jpg">
+    </div>
+  
+  
+    <div class="product-card">
+        <div class="card-text">
+          <h2 class="cart-title">Marbled Bundt</h2>
+          <br>
+          <p>Indulge in the rich and visually stunning Marbled Bundt cake, featuring a delightful blend of chocolate and vanilla flavors swirled together in a mesmerizing pattern.</p>
+        </div>
+  
+      <div class="card-text">
+        <h2 class="cart-title">Chocolate Cake</h2>
+        <br>
+        <p>Savor the decadence of our Chocolate Cake, a moist and luscious treat that combines layers of rich chocolate sponge cake with a smooth and velvety chocolate ganache frosting.</p>
+      </div>
+  
+  
+  
+      <div class="card-text">
+        <h2 class="cart-title">Vanilla Cake</h2>
+        <br>
+        <p>Indulge in the classic elegance of our Vanilla Cake, a heavenly delight with layers of moist vanilla sponge cake and a creamy vanilla buttercream frosting that will melt in your mouth.</p>
+      </div>
+  
+  
+  
+      <div class="card-text">
+        <h2 class="cart-title">Raspberry Cake</h2>
+        <br>
+        <p>Experience the perfect balance of sweet and tangy flavors with our Raspberry Cake, featuring layers of moist vanilla cake infused with luscious raspberry filling and topped with a velvety smooth raspberry buttercream frosting.</p>
+      </div>
+    </div>
+  
+    <div class="card-price-position">
+      <div class="card-price"><span>$26.99</span></div>
+      <div class="card-price"><span>$23.99</span></div>
+      <div class="card-price"><span>$23.99</span></div>
+      <div class="card-price"><span>$24.99</span></div>
+    </div>
+    <div class="add-to-cart-button">
+      <button class="shop-item-button" data-card-price="26.99" data-cart-title="Marbled Bundt" >Add to Cart</button>
+      <button class="shop-item-button" data-card-price="23.99" data-cart-title="Chocolate Cake">Add to Cart</button>
+      <button class="shop-item-button" data-card-price="23.99" data-cart-title="Vanilla Cake">Add to Cart</button>
+      <button class="shop-item-button" data-card-price="23.99" data-cart-title="Raspberry Cake">Add to Cart</button>
+    </div>
+    
+
+      <div class="product-title-section-patisserie" id="Our Breads"><em>Our Breads</em></div>
+      <div class="product-img">
+        <img src="img/baguettes.jpg">
+        <img src="img/Croissants-jar-of-jam.webp">
+        <img src="img/pain-au-chocolat.jpeg">
+        <img src="img/loaf-of-bread.jpg">
+      </div>
+    
+    
+      <div class="product-card">
+          <div class="card-text">
+            <h2 class="cart-title">Baguette</h2>
+            <br>
+            <p>Savor the classic French delight of our freshly baked Baguette, with its crispy golden crust, soft and chewy interior, and irresistible aroma that will transport you to the streets of Paris.</p>
+          </div>
+    
+        <div class="card-text">
+          <h2 class="cart-title">Croissant</h2>
+          <br>
+          <p>Indulge in the buttery perfection of our flaky Croissants, expertly crafted with layers of delicate pastry that melt in your mouth and leave you craving for more.</p>
+        </div>
+    
+    
+    
+        <div class="card-text">
+          <h2 class="cart-title">Pain au chocolat</h2>
+          <br>
+          <p>Experience pure delight with our Pain au Chocolat, a delectable pastry made with buttery, flaky layers enveloping a rich chocolate filling, creating a heavenly treat for chocolate lovers.</p>
+        </div>
+    
+    
+    
+        <div class="card-text">
+          <h2 class="cart-title">Loaf of bread</h2>
+          <br>
+          <p>Indulge in the simple pleasure of our freshly baked loaf of bread, crafted with care and expertise to deliver a crusty exterior and a soft, flavorful interior that will elevate any meal.</p>
+        </div>
+      </div>
+    
+      <div class="card-price-position">
+        <div class="card-price"><span>$2.99</span></div>
+        <div class="card-price"><span>$1.99</span></div>
+        <div class="card-price"><span>$1.99</span></div>
+        <div class="card-price"><span>$4.99</span></div>
+      </div>
+      <div class="add-to-cart-button">
+        <button class="shop-item-button" data-card-price="2.99" data-cart-title="Baguette" >Add to Cart</button>
+        <button class="shop-item-button" data-card-price="1.99" data-cart-title="Croissant">Add to Cart</button>
+        <button class="shop-item-button" data-card-price="1.99" data-cart-title="Pain au chocolat">Add to Cart</button>
+        <button class="shop-item-button" data-card-price="4.99" data-cart-title="Loaf of bread">Add to Cart</button>
+      </div>
+
+
+      
+
+  
+
+      <footer class="bg-dark text-white py-5">
+        <div class="container-footer">
+          <div class="row-footer" style="display: flex; justify-content: center; padding-left: 30%; gap: 5%; ">
+            <div class="col-md-6">
+              <h2>Contact Information</h2>
+              <p>Email: patisserie_obelix@gmail.com<br>
+                Phone Number: 123-456-7890<br>
+                Address: 112 Osgoode St, Ottawa, ON K1N 6S1<br>
+                Our Socials: @Patisserie_Obelix
+              </p>
+            </div>
+            <div class="col-md-6">
+              <h2>Business Hours</h2>
+              <p>Monday to Friday<br>
+                7:00 to 17:00<br>
+                Saturday-Sunday<br>
+                7:00 to 16:00
+              </p>
+            </div>
+          </div>
+          <div class="copyright-footer">
+            <p class="display-5 mb-3"><em>Pâtisserie Obélix</em></p>
+            <small class="text-white-50">&copy; Copyright. All rights reserved.
+              <span class="d-none d-sm-inline">2023</span>
+            </small>
+          </div>
+    
+        </div>
+      </footer>
+</body>
+</html>

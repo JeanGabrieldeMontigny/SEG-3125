@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <title>Website Mock Up 1 - SEG 3125</title>
+    <script src="script.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+    <style>
+      .checkout-page {
+        width: 70%;
+        margin: 20px;
+        padding-left: 3%;
+      }
+      .form-group {
+        margin-bottom: 10px;
+      }
+      .confirmation-notice {
+        background-color: #f0f0f0;
+        padding: 10px;
+        margin-top: 20px;
+      }
+    </style>
+    <!-- Include CSS for the date and time picker -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+<script>
+  function displayConfirmation() {
+    event.preventDefault(); // Prevent form submission
+
+    // Get form values
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var address = document.getElementById("address").value;
+    var city = document.getElementById("city").value;
+    var patissier = document.getElementById("patissier").value;
+    var creditCard = document.getElementById("credit-card").value;
+    var expiry = document.getElementById("expiry").value;
+    var cvv = document.getElementById("cvv").value;
+    var pickupDate = document.getElementById("pickup-date").value;
+    var pickupTime = document.getElementById("pickup-time").value;
+
+    // Retrieve total price
+    var totalPrice = localStorage.getItem("totalPrice");
+
+    // Generate confirmation message
+    var confirmationMessage = "Confirmation:\n\n" +
+      "Name: " + name + "\n" +
+      "Email: " + email + "\n" +
+      "Address: " + address + "\n" +
+      "City: " + city + "\n" +
+      "Pâtissier: " + patissier + "\n";
+
+    if (!document.getElementById("pay-in-store").checked) {
+      // Include credit card information if Pay In-Store option is not selected
+      confirmationMessage +=
+        "Credit Card Number: " + creditCard + "\n" +
+        "Expiry Date: " + expiry + "\n" +
+        "CVV: " + cvv + "\n";
+    }
+
+    confirmationMessage +=
+      "Pickup Date: " + pickupDate + "\n" +
+      "Pickup Time: " + pickupTime + "\n" +
+      "Total Price: " + totalPrice;
+
+    // Display confirmation alert
+    alert(confirmationMessage);
+  }
+</script>
+</head>
+
+<body>
+    
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+          <li class="nav-item-logo">
+                <a class="nav-link active" aria-current="page" href="index.html"><em>Pâtisserie Obélix</em></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="product.html">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="OrderOnline.html">Order</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="about.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="contact.html">Contact Us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="total-price-checkout" style="padding: 15px; justify-content: center; display: inline-block; align-items: center; margin-left: 45%;" >
+    <h1>Your Order</h1>
+    <div id="totalPriceSection"></div>
+  </div>
+  
+  <!-- Add Bootstrap JS -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    const totalPriceSection = document.getElementById('totalPriceSection');
+    const totalPrice = localStorage.getItem('totalPrice');
+
+    if (totalPrice) {
+      const totalPriceHTML = `<h4>Total Price: ${totalPrice}</h4>`;
+      totalPriceSection.innerHTML = totalPriceHTML;
+    }
+  </script>
+
+<div class="checkout-page" style="margin-left: 38%;">
+  <form style="width: 400px;">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+      <label for="address">Address:</label>
+      <input type="text" id="address" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+      <label for="city">City:</label>
+      <input type="text" id="city" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+      <label for="patissier">Pâtissier:</label>
+      <select id="patissier" class="form-control" required>
+        <option value="francois">François</option>
+        <option value="julien">Julien</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="credit-card">Credit Card Number:</label>
+      <input type="text" id="credit-card" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+      <label for="expiry">Expiry Date:</label>
+      <input type="text" id="expiry" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+      <label for="cvv">CVV:</label>
+      <input type="text" id="cvv" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+      <label for="pickup-date">Pickup Date:</label>
+      <input type="date" id="pickup-date" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+      <label for="pickup-time">Pickup Time:</label>
+      <input type="time" id="pickup-time" class="form-control" required>
+    </div>
+
+    <div class="form-check">
+      <input type="checkbox" id="pay-in-store" class="form-check-input">
+      <label class="form-check-label" for="pay-in-store">Pay In-Store</label>
+    </div>
+
+    <button type="submit" class="btn btn-primary" onclick="displayConfirmation()" style="margin-left: 35%;">Place Order</button>
+  </form>
+
+</div>
+
+  <script>
+    function displayConfirmation() {
+      event.preventDefault();
+
+      // Retrieve form values
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const address = document.getElementById("address").value;
+      const city = document.getElementById("city").value;
+      const patissier = document.getElementById("patissier").value;
+      const creditCard = document.getElementById("credit-card").value;
+      const expiry = document.getElementById("expiry").value;
+      const cvv = document.getElementById("cvv").value;
+      const pickupDate = document.getElementById("pickup-date").value;
+      const pickupTime = document.getElementById("pickup-time").value;
+
+      // Calculate total price
+      const totalPrice = localStorage.getItem("totalPrice");
+
+      // Generate confirmation message
+      const confirmationMessage = `
+        Confirmation:
+        
+        Name: ${name}
+        Email: ${email}
+        Address: ${address}
+        City: ${city}
+        Pâtissier: ${patissier}
+        Credit Card Number: ${creditCard}
+        Expiry Date: ${expiry}
+        CVV: ${cvv}
+        Total Price: ${totalPrice}
+        Pickup Date: ${pickupDate}
+        Pickup Time: ${pickupTime}
+      `;
+
+      // Display confirmation pop-up
+      alert(confirmationMessage);
+    }
+
+    function displayConfirmation() {
+  event.preventDefault();
+
+  // Retrieve form values
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const address = document.getElementById("address").value;
+  const city = document.getElementById("city").value;
+  const patissier = document.getElementById("patissier").value;
+  const creditCard = document.getElementById("credit-card").value;
+  const expiry = document.getElementById("expiry").value;
+  const cvv = document.getElementById("cvv").value;
+  const pickupDate = document.getElementById("pickup-date").value;
+  const pickupTime = document.getElementById("pickup-time").value;
+
+  // Check if Pay In-Store option is selected
+  const payInStoreCheckbox = document.getElementById("pay-in-store");
+  const payInStore = payInStoreCheckbox.checked;
+
+  let confirmationMessage = "Confirmation:\n\n" +
+    "Name: " + name + "\n" +
+    "Email: " + email + "\n" +
+    "Address: " + address + "\n" +
+    "City: " + city + "\n" +
+    "Pâtissier: " + patissier + "\n";
+
+  if (!payInStore) {
+    // If Pay In-Store option is not selected, include credit card information
+    confirmationMessage +=
+      "Credit Card Number: " + creditCard + "\n" +
+      "Expiry Date: " + expiry + "\n" +
+      "CVV: " + cvv + "\n";
+  }
+
+  // Include pickup date and time
+  confirmationMessage +=
+    "Pickup Date: " + pickupDate + "\n" +
+    "Pickup Time: " + pickupTime + "\n";
+
+  // Retrieve total price
+  const totalPrice = localStorage.getItem("totalPrice");
+  confirmationMessage += "Total Price: " + totalPrice;
+
+  // Display confirmation alert
+  alert(confirmationMessage);
+}
+
+  </script>
+
+  <div id="confirmation-notice" class="confirmation-notice" style="display: none;"></div>
+</div>
+
+<!-- Include JavaScript for the date and time picker -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+  // Initialize date picker
+  flatpickr("#pickup-date", {
+    dateFormat: "Y-m-d",
+    minDate: "today"
+  });
+
+  // Initialize time picker
+  flatpickr("#pickup-time", {
+    enableTime: true,
+    noCalendar: true,
+    dateFormat: "H:i",
+    minTime: "09:00",
+    maxTime: "18:00",
+    defaultDate: "12:00"
+  });
+</script>
+
+
+  <footer class="bg-dark text-white py-5">
+    <div class="container-footer">
+      <div class="row-footer" style="display: flex; justify-content: center; padding-left: 30%; gap: 5%; ">
+        <div class="col-md-6">
+          <h2>Contact Information</h2>
+          <p>Email: patisserie_obelix@gmail.com<br>
+            Phone Number: 123-456-7890<br>
+            Address: 112 Osgoode St, Ottawa, ON K1N 6S1<br>
+            Our Socials: @Patisserie_Obelix
+          </p>
+        </div>
+        <div class="col-md-6">
+          <h2>Business Hours</h2>
+          <p>Monday to Friday<br>
+            7:00 to 17:00<br>
+            Saturday and Sunday<br>
+            8:00 to 15:00
+          </p>
+        </div>
+      </div>
+    </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center p-3">
+      © 2023 Pâtisserie Obélix - All rights reserved.
+    </div>
+  </footer>
+</body>
+</html>
